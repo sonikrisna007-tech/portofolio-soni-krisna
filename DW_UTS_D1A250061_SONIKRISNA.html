@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html ang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MyLibrary - Perpustakaan Digital</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <h1 class="logo">MyLibrary</h1>
+
+            <!-- Theme toggle -->
+            <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
+
+            <nav>
+                <ul id="nav-links" class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#services">Kategori Buku</a></li>
+                    <li><a href="#library">Katalog Digital</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+
+                <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="nav-links">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+        <section id="home" class="hero">
+            <div class="container hero-content">
+                <h2>Selamat Datang di MyLibrary</h2>
+                <p>Temukan ribuan harta karun buku digital dan fisik untuk menemani perjalanan literasi Anda.</p>
+                <a href="#services" class="btn">Jelajahi Buku</a>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="about section">
+            <div class="container">
+                <h2>Tentang Perpustakaan</h2>
+                <p class="about-summary">
+                    MyLibrary adalah perpustakaan modern yang menyediakan akses mudah ke koleksi buku berkualitas.
+                    <span class="more-text" id="moreText" hidden>
+                        Kami berkomitmen meningkatkan minat baca dengan menyediakan buku fiksi, non-fiksi, jurnal,
+                        dan dokumen pendidikan dari berbagai genre. Dengan dukungan pustakawan profesional, kami
+                        memastikan pengalaman membaca anda selalu menyenangkan.
+                    </span>
+                </p>
+                <button id="aboutToggle" class="link-btn" aria-expanded="false">Baca selengkapnya</button>
+
+                <div class="team">
+                    <h3>Tim Pustakawan</h3>
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <div class="avatar">A</div>
+                            <h4>Soni Krisna</h4>
+                            <p>Kepala Perpustakaan</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="avatar">R</div>
+                            <h4>Soni Krisna</h4>
+                            <p>Kurator Buku</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="avatar">D</div>
+                            <h4>Soni Krisna</h4>
+                            <p>Administrasi & Layanan</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KATEGORI -->
+        <section id="services" class="services section">
+            <div class="container">
+                <h2>Kategori Buku</h2>
+                <div class="service-grid">
+                    <div class="card">
+                        <h3>Fiksi</h3>
+                        <p>Novel, Cerpen, Fantasi, dan lainnya.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Non-Fiksi</h3>
+                        <p>Biografi, Sejarah, dan Pengembangan diri.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Pendidikan</h3>
+                        <p>Buku sekolah, Jurnal ilmiah, dan Referensi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 📚 KATALOG BUKU DIGITAL – MyLibrarySon -->
+        <section id="library" class="library section">
+            <div class="container">
+                <h2>Katalog Buku Digital</h2>
+                <p>Telusuri koleksi buku digital dengan mudah dan cepat ✨</p>
+
+                <!-- Pencarian -->
+                <input type="text" id="searchInput" class="search-box" placeholder="Cari judul atau penulis...">
+
+                <!-- Katalog -->
+                <div id="bookCatalog" class="catalog"></div>
+
+                <!-- Game Touch -->
+                <button id="touchGameBtn" class="game-btn">🎮 Game Touch: Acak Buku</button>
+                <div id="gameResult" class="game-result"></div>
+            </div>
+        </section>
+
+        <!-- REKOMENDASI -->
+        <section id="testimonials" class="testimonials section">
+            <div class="container">
+                <h2>Rekomendasi Buku</h2>
+
+                <div class="testimonial-wrap">
+                    <button class="testi-nav prev">‹</button>
+
+                    <ul class="testimonial-list">
+                        <li class="testimonial-card">
+                            <blockquote>
+                                <p>“Laut Bercerita - Kisah emosional penuh pesan kemanusiaan.”</p>
+                                <footer>— Rekomendasi Minggu Ini</footer>
+                            </blockquote>
+                        </li>
+                        <li class="testimonial-card">
+                            <blockquote>
+                                <p>“Atomic Habits - Buku pengembangan diri paling dicari.”</p>
+                                <footer>— Buku Populer</footer>
+                            </blockquote>
+                        </li>
+                        <li class="testimonial-card">
+                            <blockquote>
+                                <p>“Sejarah Dunia yang Disembunyikan - Edukatif & membuka wawasan.”</p>
+                                <footer>— Pilihan Pustakawan</footer>
+                            </blockquote>
+                        </li>
+                    </ul>
+
+                    <button class="testi-nav next">›</button>
+                </div>
+
+                <div class="testi-dots"></div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2>Hubungi Kami</h2>
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Nama" required />
+                    <input type="email" name="email" placeholder="Email" required />
+                    <textarea name="message" placeholder="Pesan Anda..." rows="4" required></textarea>
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+                <p id="form-status"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section about">
+                <h3>Tentang Kami</h3>
+                <p>MyLibrary - Perpustakaan digital modern yang mendukung budaya literasi.</p>
+            </div>
+
+            <div class="footer-section links">
+                <h3>Tautan Cepat</h3>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#services">Kategori Buku</a></li>
+                    <li><a href="#library">Katalog Digital</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact">
+                <h3>Kontak</h3>
+                <p>Email: info@mylibraryson.com</p>
+                <p>Telepon: +62 895-0975-8911</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 MyLibrary. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" title="Kembali ke atas">↑</button>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

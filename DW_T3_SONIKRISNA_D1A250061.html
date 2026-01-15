@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplikasi To-Do List | Tugas III</title>
+
+    <style>
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            background: linear-gradient(135deg, #89CFF0, #D4F1F4);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 450px;
+            background: white;
+            margin: 50px auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.9s ease;
+        }
+
+        h2 {
+            text-align: center;
+            color: #005f73;
+            margin-bottom: 20px;
+        }
+
+        #taskInput {
+            width: 70%;
+            padding: 10px;
+            border: 2px solid #008CBA;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        #addBtn {
+            padding: 10px 15px;
+            background: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        #addBtn:hover {
+            background: #007299;
+        }
+
+        ul {
+            padding-left: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            list-style: none;
+            background: #F0F8FF;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s ease;
+            border-left: 6px solid #008CBA;
+            cursor: pointer;
+        }
+
+        li:hover {
+            transform: scale(1.03);
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            color: gray;
+            background: #e5e5e5;
+            border-left: 6px solid #666;
+        }
+
+        .deleteBtn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .deleteBtn:hover {
+            background: darkred;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>📌 To-Do List Mahasiswa</h2>
+
+        <input type="text" id="taskInput" placeholder="Masukkan tugas baru...">
+        <button id="addBtn">Tambah</button>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        const input = document.getElementById("taskInput");
+        const button = document.getElementById("addBtn");
+        const list = document.getElementById("taskList");
+
+        document.addEventListener("DOMContentLoaded", loadTasks);
+        button.addEventListener("click", addTask);
+
+        function addTask() {
+            const text = input.value.trim();
+            if (text === "") return alert("Tugas tidak boleh kosong!");
+
+            createTaskElement(text, false);
+            saveTask(text, false);
+            input.value = "";
+        }
+
+        function createTaskElement(text, completed) {
+            const li = document.createElement("li");
+            li.textContent = text;
+
+            if (completed) li.classList.add("completed");
+
+            li.addEventListener("click", () => {
+                li.classList.toggle("completed");
+                updateStorage();
+            });
+
+            const del = document.createElement("button");
+            del.textContent = "Hapus";
+            del.className = "deleteBtn";
+
+            del.addEventListener("click", (e) => {
+                e.stopPropagation();
+                li.remove();
+                updateStorage();
+            });
+
+            li.appendChild(del);
+            list.appendChild(li);
+        }
+
+        function saveTask(text, completed) {
+            let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            tasks.push({ text, completed });
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        function loadTasks() {
+            let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            tasks.forEach(task => createTaskElement(task.text, task.completed));
+        }
+
+        function updateStorage() {
+            const items = document.querySelectorAll("#taskList li");
+            let tasks = [];
+
+            items.forEach(item => {
+                tasks.push({
+                    text: item.childNodes[0].textContent,
+                    completed: item.classList.contains("completed")
+                });
+            });
+
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+    </script>
+
+</body>
+</html>

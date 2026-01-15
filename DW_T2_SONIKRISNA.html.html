@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Pendataan Mahasiswa Sistem Informasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .container {
+            width: 500px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px 30px;
+            border-radius: 8px;
+        }
+        table td {
+            padding: 6px;
+            vertical-align: top;
+        }
+        input[type="text"], input[type="password"], textarea, select {
+            width: 250px;
+        }
+        textarea {
+            height: 80px;
+        }
+        .btn {
+            padding: 5px 15px;
+            margin-right: 10px;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h3 class="center">FORM PENDATAAN MAHASISWA SISTEM INFORMASI</h3>
+
+    <div class="center">
+        <img src="logo.png" alt="logo" width="110">
+    </div>
+    <br>
+
+    <form>
+        <table>
+            <tr>
+                <td>Nomor Pokok Mahasiswa</td>
+                <td>:</td>
+                <td><input type="text" name="npm"></td>
+            </tr>
+            <tr>
+                <td>Nama Mahasiswa</td>
+                <td>:</td>
+                <td><input type="text" name="nama"></td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td>:</td>
+                <td><textarea name="alamat"></textarea></td>
+            </tr>
+            <tr>
+                <td>Tempat, tanggal lahir</td>
+                <td>:</td>
+                <td><input type="text" name="ttl"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>:</td>
+                <td><input type="password" name="pass"></td>
+            </tr>
+            <tr>
+                <td>Retype Password</td>
+                <td>:</td>
+                <td><input type="password" name="repass"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td>:</td>
+                <td>
+                    <input type="radio" name="jk" value="Pria"> Pria
+                    <input type="radio" name="jk" value="Wanita"> Wanita
+                </td>
+            </tr>
+            <tr>
+                <td>Hobby</td>
+                <td>:</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="Membaca"> Membaca<br>
+                    <input type="checkbox" name="hobby" value="Memancing"> Memancing<br>
+                    <input type="checkbox" name="hobby" value="Lainnya"> Lain-lain
+                </td>
+            </tr>
+            <tr>
+                <td>Tingkat Pendidikan</td>
+                <td>:</td>
+                <td>
+                    <select name="pendidikan">
+                        <option value="SMA">SMA</option>
+                        <option value="D3">D3</option>
+                        <option value="S1">S1</option>
+                        <option value="S2">S2</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Komentar</td>
+                <td>:</td>
+                <td><textarea name="komentar"></textarea></td>
+            </tr>
+        </table>
+
+        <br>
+        <div class="center">
+            <input class="btn" type="submit" value="Kirim">
+            <input class="btn" type="reset" value="Reset">
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
